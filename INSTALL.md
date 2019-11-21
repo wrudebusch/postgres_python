@@ -53,10 +53,16 @@ Step 11: test to see if if worked:
 Have fun using SQL!
 
 ## more Docker
-lists all containers: sudo docker container ls
-kills a container: sudo docker container kill [contianer_id]
-delete all stopped containers: sudo docker container prune
-most recnet version of postgres: docker pull postgres
-make new dir for volumes: mkdir -p $HOME/docker/volumes/postgres
-one shot command to start that image: docker run --rm   --name pg-docker -e POSTGRES_PASSWORD=docker -d -p 5432:5432 -v $HOME/docker/volumes/postgres:/var/lib/postgresql/data  postgres
-log into postgres: psql -h localhost -U postgres -d postgres
+lists all containers: `sudo docker container ls`
+
+kills a container: `sudo docker container kill [contianer_id]`
+
+delete all stopped containers: `sudo docker container prune`
+
+most recnet version of postgres: `docker pull postgres`
+
+make new dir for volumes: `mkdir -p $HOME/docker/volumes/postgres`
+
+one shot command to start that image: `docker run --rm   --name pg-docker -e POSTGRES_PASSWORD=docker -d -p 5432:5432 -v $HOME/docker/volumes/postgres:/var/lib/postgresql/data  postgres`
+
+log into postgres: `psql -h localhost -U postgres -d postgres`
