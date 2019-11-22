@@ -3,34 +3,24 @@ Aug 12, 2019
 
 # Install Steps
 
-## Git
-Step 1: have git setup, then in a new folder use
-git clone https://github.com/Hinge/senior_data_eng_hw.git
+Step 1: stop postgres if its running `sudo service postgresql stop`
 
 ## Docker
-Step 2: install Docker and stop postgres if its running 
-sudo service postgresql stop
+Step 2: install Docker and get the most recent postgres: `docker pull postgres`
 
-Step 3: While in the same path of Dockerfile: 
-`sudo docker build -t postgresdocker:11 .`
-Note: the -t option is a tag, so maybe call it something relevant to the image you're making
+Step 3: make new path for this comtainer: `make new dir for volumes: mkdir -p $HOME/docker/volumes/postgres`
 
-Step 4: run the Docker image and make a containe:
-In our case, we don't need a postgres username+password to be set, so we do this:
-`sudo docker run -d -p 5432:5432 --name my-postgres postgresdocker:11`
+Step 4: run the Docker image in one shot:
+`docker run --rm   --name pg-docker -e POSTGRES_PASSWORD=docker -d -p 5432:5432 -v $HOME/docker/volumes/postgres:/var/lib/postgresql/data  postgres`
 
-Step 5: And then we connect to the container
-`sudo docker exec -it my-postgres bash`
+Step 5: log into postgres: `psql -h localhost -U postgres -d postgres`
 
-Step 6: (testing, you can skip this) while inside the container, we connect to the Postgres server using psql:
-`psql -U postgres`
-
-Step 7: (testing, you can skip this) list databases 
+Step 6: (testing, you can skip this) list databases 
 ```\l 
 \q
 ```
 
-Step 8: (testing, you can skip this) in a diff terminal connect to postgres and see that if its ok:
+Step 7: (testing, you can skip this) in a diff terminal connect to postgres and see that if its ok:
 ```psql -h localhost -p 5432 -U postgres -W  
 \l
 ```
@@ -50,19 +40,9 @@ Step 11: test to see if if worked:
 \dt
 ```
 
-Have fun using SQL!
-
-## more Docker
+## Docker cheatsheet
 lists all containers: `sudo docker container ls`
 
 kills a container: `sudo docker container kill [contianer_id]`
 
 delete all stopped containers: `sudo docker container prune`
-
-most recnet version of postgres: `docker pull postgres`
-
-make new dir for volumes: `mkdir -p $HOME/docker/volumes/postgres`
-
-one shot command to start that image: `docker run --rm   --name pg-docker -e POSTGRES_PASSWORD=docker -d -p 5432:5432 -v $HOME/docker/volumes/postgres:/var/lib/postgresql/data  postgres`
-
-log into postgres: `psql -h localhost -U postgres -d postgres`
