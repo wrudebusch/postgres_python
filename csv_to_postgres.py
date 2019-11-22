@@ -9,7 +9,7 @@ marketing_df = pd.concat([pd.read_csv(f) for f in glob.glob('dataset/marketing_*
 user_df = pd.concat([pd.read_csv(f) for f in glob.glob('dataset/user_*.csv')], ignore_index = True)
 
 # Connect to database 
-engine = create_engine("postgresql://postgres:password@localhost/postgres")
+engine = create_engine("postgresql://postgres:docker@localhost/postgres")
 con = engine.connect()
 
 ## makes tables out of dataframes, this is amazing
