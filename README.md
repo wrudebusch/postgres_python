@@ -16,14 +16,12 @@ Step 4: run the Docker image in one shot:
 Step 5: log into postgres: `psql -h localhost -U postgres -d postgres`
 
 Step 6: (testing, you can skip this) list databases 
-```\l 
+`\l 
 \q
-```
+`
 
 Step 7: (testing, you can skip this) in a diff terminal connect to postgres and see that if its ok:
-```psql -h localhost -p 5432 -U postgres -W  
-\l
-```
+`psql -h localhost -p 5432 -U postgres -W  \l`
 
 ## Python
 
@@ -35,10 +33,10 @@ Step 10: run the script I wrote
 
 ## SQL
 Step 11: test to see if if worked:
-```psql -h localhost -p 5432 -U postgres -W
+`psql -h localhost -p 5432 -U postgres -W
 \c postgres
 \dt
-```
+`
 
 ## Docker cheatsheet
 lists all containers: `sudo docker container ls`
