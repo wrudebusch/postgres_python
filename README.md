@@ -28,7 +28,7 @@ Step 7: (testing, you can skip this) in a diff terminal connect to postgres and 
 Step 9: innstall pandas, psycopg2, and sqlalchamey if you don't already have them
 `python3 -m pip install --user pandas sqlalchemy psycopg2`
 
-Step 10: run the script I wrote (note: it must be inthe same dir as the .csv files, which i am NOT including)
+Step 10: run the script I wrote (note: it must be inthe same dir as the .csv files)
 `python3 csv_to_postgres.py`
 
 ## SQL
